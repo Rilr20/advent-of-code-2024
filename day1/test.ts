@@ -17,7 +17,7 @@ function getFile(filepath: string) {
 function part_1_test_example_1() {
     let file = getFile('example.txt');
     let result = part1(file);
-    const expected = -1
+    const expected = 11
     console.log("Part 1 Example returned " + result);
     result === expected ? console.log("PASSED: part 1 Example returned " + result) : console.log("FAILED: part 1 Example returned " + result + " instead of " + expected);
 
@@ -31,7 +31,7 @@ function part_1_test_real_input() {
 
 function part_2_test_example_1() {
     let file = getFile('example.txt');
-    let result = part1(file);
+    let result = part2(file);
     const expected = -1
     console.log("Part 2 Example returned " + result);
     result === expected ? console.log("PASSED: part 2 Example returned " + result) : console.log("FAILED: part 2 Example returned " + result + " instead of " + expected);
@@ -40,19 +40,19 @@ function part_2_test_example_1() {
 
 function part_2_test_real_input() {
     let file = getFile('input.txt');
-    let result = part1(file);
+    let result = part2(file);
     console.log("Part 2 returned " + result);
 }
 
 function run() {
-    part_1_test_example_1()
-    console.log();
     part_1_test_real_input()
     console.log();
-
-    part_2_test_example_1()
+    part_1_test_example_1()
     console.log();
+
     part_2_test_real_input()
+    console.log();
+    part_2_test_example_1()
 }
 
 run()
