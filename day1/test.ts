@@ -32,7 +32,7 @@ function part_1_test_real_input() {
 function part_2_test_example_1() {
     let file = getFile('example.txt');
     let result = part2(file);
-    const expected = -1
+    const expected = 31
     console.log("Part 2 Example returned " + result);
     result === expected ? console.log("PASSED: part 2 Example returned " + result) : console.log("FAILED: part 2 Example returned " + result + " instead of " + expected);
 
