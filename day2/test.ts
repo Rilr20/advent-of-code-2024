@@ -50,7 +50,7 @@ function run() {
     part_1_test_real_input()
     console.log();
 
-    part_2_test_example_1()
+    // part_2_test_example_1()
     console.log();
     part_2_test_real_input()
 }

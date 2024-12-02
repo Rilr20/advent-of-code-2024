@@ -83,54 +83,33 @@ function differenceList(numbers:number[]):number[][] {
 }
 function newIsSafe(numbers:number[], getNegative=true):boolean {
     // 507 too low
-    // 533 not right
+    // 533 too high
     console.log("START: " + `${numbers}`);
     
     let negatives = getNegative ? findAllNegatives(numbers) : []
     let isSafe = true
-    let shouldStop = true
+    // let shouldStop = true
     numbers.forEach((number) => {
         
-        shouldStop = number <= 0 || number > 3 ? true : false
-        if (shouldStop) {
-
+        if (number <= 0 || number > 3) {
+            // console.log("olololololo false");
+            
             isSafe = false
-        }
+        } 
     })
-    // console.log(negatives);
-    // console.log(negatives.length > 0);
     
     
     if (!isSafe && negatives.length > 0) {
-        console.log("I*M HERE");
-        
-        //remove from list
-        let newSafe = false
-        negatives.forEach(negative => {
-            console.log("----STARTING THIS----");
-            
-            // console.log(negative);
-            
-            let newNumber = numbers.flatMap(element => [element])
-            
-            newNumber.splice(negative[1], 1)
-            console.log(newNumber);
-            
-            if (!newSafe) {
-                newSafe = newIsSafe(newNumber, getNegative=false)
-                console.log(newSafe);
-                isSafe = newSafe
-            }
-            else {
-                console.log("I FOUND ONE!");
-                
-            }
-            
-        });
+        for (let i = 0; i < numbers.length; i++) {
+            if (newIsSafe(numbers.filter((_, j) => j !== i), false)) {
+                isSafe = true
+            } 
+        }
     }
-    console.log();
-    console.log();
-    console.log();
+
+    // console.log();
+    // console.log();
+    // console.log();  
     return isSafe
 }
 function findAllNegatives(numbers:number[]):number[][] {
