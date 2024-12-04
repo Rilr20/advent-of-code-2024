@@ -58,11 +58,11 @@ function part_2_test_real_input() {
 }
 
 function run() {
-    // part_1_test_example_1()
+    part_1_test_example_1()
     console.log();
-    // part_1_test_example_2()
+    part_1_test_example_2()
     console.log();
-    // part_1_test_example_3()
+    part_1_test_example_3()
     console.log();
     part_1_test_real_input()
     console.log();
