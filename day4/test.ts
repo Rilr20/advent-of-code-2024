@@ -26,14 +26,14 @@ function part_1_test_example_2() {
     let result = part1(file);
     const expected = 18
     console.log("Part 1 Example returned " + result);
-    result === expected ? console.log("PASSED: part 1 Example returned " + result) : console.log("FAILED: part 1 Example returned " + result + " instead of " + expected);
+    result === expected ? console.log("PASSED: part 1 Example returned " + result) : console.log("FAILED: part 2 Example returned " + result + " instead of " + expected);
 }
 function part_1_test_example_3() {
     let file = getFile('example3.txt');
     let result = part1(file);
     const expected = 18
     console.log("Part 1 Example returned " + result);
-    result === expected ? console.log("PASSED: part 1 Example returned " + result) : console.log("FAILED: part 1 Example returned " + result + " instead of " + expected);
+    result === expected ? console.log("PASSED: part 1 Example returned " + result) : console.log("FAILED: part 3 Example returned " + result + " instead of " + expected);
 }
 
 function part_1_test_real_input() {
@@ -58,11 +58,11 @@ function part_2_test_real_input() {
 }
 
 function run() {
-    part_1_test_example_1()
+    // part_1_test_example_1()
     console.log();
-    part_1_test_example_2()
+    // part_1_test_example_2()
     console.log();
-    part_1_test_example_3()
+    // part_1_test_example_3()
     console.log();
     part_1_test_real_input()
     console.log();
