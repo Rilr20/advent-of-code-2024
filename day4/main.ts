@@ -7,8 +7,10 @@ export default {
         let rows = file.split("\n")
         let sum = 0
         rows.forEach((row, rowId) => {
-            row.split('').forEach((element, charId) => {
+            row.split('').forEach((_, charId) => {
                 // console.log(`${element} : ${i}`);
+                console.log(charId);
+                
                 sum += horizontal(rows, rowId, charId) ? 1 : 0 // 380 matches
                 
                 sum += vertical(rows, rowId, charId) ? 1 : 0 // 393 matches
@@ -17,14 +19,6 @@ export default {
             });
             // horizontal(file, )
         })
-        // console.log("should be 10");
-
-        // horizontal 5
-        // verical 3?
-        // diagonal 
-
-        // checks horizontal xmas
-        // console.log(match?.length);
 
         return sum
     },
@@ -33,7 +27,7 @@ export default {
     }
 }
 function horizontal(rows: string[], rowId: number, charId: number): boolean {
-    //diagonal to the left and to the right
+    //Horizontal check
     let xmas = ""
     // let rows = file.split("\n")
     for (let i = 0; i < 4; i++) {
@@ -51,19 +45,13 @@ function horizontal(rows: string[], rowId: number, charId: number): boolean {
     return false
 }
 function vertical(rows: string[], rowId: number, charId: number): boolean {
-    //diagonal to the left and to the right
+    //Vertical check
     let xmas = ""
-    // let rows = file.split("\n")
     for (let i = 0; i < 4; i++) {
-        // console.log(file[rowId + i]);
-        // console.log(rows.length);
-        // console.log(rowId+i);
         
-        if (rowId +i < rows.length) {
+        if (rows[rowId + i]) {
             xmas += rows[rowId+i][charId]
-
         }
-        // console.log(xmas);
         
     }
     if (XMAS.includes(xmas)) {
@@ -78,37 +66,27 @@ function diagonal(rows: string[], rowId: number, charId: number): number {
     let sum = 0
     // let rows = file.split("\n")
     for (let i = 0; i < 4; i++) {
-        // console.log(file[rowId + i]);
-        // diagonal right
-        // console.log(`rowId is ${rowId} ${rowId} + ${i} = ${rowId+i} what is rows lenght ${rows.length}`);
 
-        if (rowId + i <= rows.length) {
-
-            xmasLeft += rows[rowId+i][charId + i]
+        //diagonal DOWN RIGHT 
+        if (rows[rowId-i]) {
+            xmasRight += rows[rowId-i][charId + i]
+            console.log(`${rowId + i} ${charId + i}`);
 
         }
-
-        // diagonal left
-        if (rowId - i > -1 && charId - i > -1) {
-        // if (rowId + i < rows.length && charId - i >= 0) {
-            // console.log(charId - i);
-            // console.log(rowId - i);
-
-            xmasRight += rows[rowId - i][charId - i]
+        
+        // diagonal DPWM ÖEFT
+        if (rows[rowId - i]) {
+            xmasLeft += rows[rowId - i][charId - i]
             
         }
 
     }
     if (XMAS.includes(xmasLeft)) {
-        //715 ggr
-        // console.log("left");
-
+        //785 ggr
         sum++
     }
     if (XMAS.includes(xmasRight)) {
-        //785 ggr
-        // console.log("right");
-
+        //715 ggr
         sum++
     }
     
