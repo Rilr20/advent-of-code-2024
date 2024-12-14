@@ -18,7 +18,6 @@ export default {
         let sum = 0
         sections.forEach((section) => {
             let datas = stringToData(section)
-            console.log(datas);
             let ax = datas[0]
             let ay = datas[1]
             let bx = datas[2]
@@ -33,7 +32,22 @@ export default {
         return sum
     },
     part2(file: string): number {
-        return -1
+        let sections = file.split("\n\n")
+        let sum = 0
+        sections.forEach((section) => {
+            let datas = stringToData(section)
+            let ax = datas[0]
+            let ay = datas[1]
+            let bx = datas[2]
+            let by = datas[3]
+            let px = datas[4]
+            let py = datas[5]
+
+            let res = EquationTimeBitch(ax, ay, bx, by, px + 10000000000000, py + 10000000000000)
+            sum += coinCalc(res[0], res[1])
+
+        })
+        return sum
     }
 }
 function EquationTimeBitch(Ax: number, Ay: number, Bx: number, By: number, Px: number, Py: number,): number[] {
